@@ -21,8 +21,8 @@ public class Screen {
     public void init(){
         for (int iy = 0; iy < ySize; iy++){
             for (int ix = 0; ix < xSize; ix++){
-                setIntensity(ix, iy, (ix+iy)%10);
-                setColor(ix, iy, ConsoleColors.Text.GREEN);
+                setIntensity(ix, iy, 0);
+                setColor(ix, iy, ConsoleColors.Text.BLACK);
             }
         }
     }
@@ -52,6 +52,7 @@ public class Screen {
     public String getColor(int x, int y){
         return displayColor[x][y];
     }
+
 
     public void display(){
         for (int iy = 0; iy < ySize; iy++){

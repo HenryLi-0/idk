@@ -18,11 +18,10 @@ public class MainGame {
     }
 
     public void tick(){
-        screen.display();
         for (int iy = 0; iy < Constants.Render.DISPLAY_DIMENSIONS[1]; iy++){
             for (int ix = 0; ix < Constants.Render.DISPLAY_DIMENSIONS[0]; ix++){
                 screen.setIntensity(ix, iy, (ix+iy+gametime)%10);
-                screen.setColor(ix, iy, ConsoleColors.Text.GREEN);
+                screen.setColor(ix, iy, ConsoleColors.Text.WHITE);
             }
         }
         gametime+=1;

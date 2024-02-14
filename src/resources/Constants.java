@@ -7,10 +7,14 @@ public class Constants {
     }
 
     public class Game {
-        public static final int MAX_FPS = 30;
+        // Ticking Related
+        public static final int MAX_FPS = 20;
         public static final int MAX_FPS_DELAY = 1000/MAX_FPS;
         public static final int TPS = 20;
         public static final long TICK_DELAY = 1000/TPS;
 
+        // Gameplay Related
+        public static final int[] WORLD_DIMENSIONS = {10,10,10};
+        
     }
 }
