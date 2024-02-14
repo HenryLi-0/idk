@@ -26,9 +26,7 @@ public class ConsoleColors {
         public static final String CYAN_BRIGHT = "\033[0;96m";   // CYAN
         public static final String BLUE_BRIGHT = "\033[0;94m";   // BLUE
         public static final String PURPLE_BRIGHT = "\033[0;95m"; // PURPLE
-    }
 
-    public class Background {
         // Bold High Intensity
         public static final String WHITE_BOLD_BRIGHT = "\033[1;97m"; // WHITE
         public static final String BLACK_BOLD_BRIGHT = "\033[1;90m"; // BLACK
@@ -38,6 +36,9 @@ public class ConsoleColors {
         public static final String CYAN_BOLD_BRIGHT = "\033[1;96m";  // CYAN
         public static final String BLUE_BOLD_BRIGHT = "\033[1;94m";  // BLUE
         public static final String PURPLE_BOLD_BRIGHT = "\033[1;95m";// PURPLE
+    }
+
+    public class Background {
 
         // High Intensity backgrounds
         public static final String WHITE_BACKGROUND_BRIGHT = "\033[0;107m";   // WHITE
