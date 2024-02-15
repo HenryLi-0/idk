@@ -1,6 +1,7 @@
 package game.camera;
 
 import game.world.World;
+import static resources.Constants.Game.*;
 
 public class CameraPosition {
     private double x = 0; 
@@ -32,6 +33,8 @@ public class CameraPosition {
         if (collision){
             //collision code
         }
+        xv*=SIDEWAYS_VELOCITY_MULTIPLIER;
+        zv*=SIDEWAYS_VELOCITY_MULTIPLIER;
     }
 
 
