@@ -26,7 +26,7 @@ public class Screen {
             }
         }
     }
-    
+
     public void setIntensity(int x, int y, int newPixel){
         displayIntensity[x][y] = newPixel;
     }
@@ -55,7 +55,7 @@ public class Screen {
 
 
     public void display(){
-        for (int iy = 0; iy < ySize; iy++){
+        for (int iy = ySize-1; iy > -1; iy--){
             rowBuffer="";
             for (int ix = 0; ix < xSize; ix++){
                 rowBuffer = rowBuffer + ColoredText.format(Constants.Render.INTENSITY[displayIntensity[ix][iy]],displayColor[ix][iy]);
