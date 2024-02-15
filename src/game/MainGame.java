@@ -1,6 +1,7 @@
 package game;
 
-import game.render.Graph;
+import game.render.Screen;
+import game.render.render_sub.Graph;
 import resources.ConsoleColors;
 import resources.Constants;
 
@@ -15,9 +16,8 @@ public class MainGame {
     }
 
     public void displayTick(){
-        Graph.line(0, 0, 149, 14, ConsoleColors.Text.GREEN, 9, screen);
+        Graph.triangleFrame(0, 0, 0, 14, 149, 0, ConsoleColors.Text.GREEN, 9, screen);
         screen.display();
-        System.out.println("seperater");
     }
 
     public void tick(){

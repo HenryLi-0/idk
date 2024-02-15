@@ -2,7 +2,7 @@ package game.world;
 
 import static resources.Constants.Game.*;
 
-import game.render.Cube;
+import game.render.render_sub.Cube;
 
 public class World {
     Cube[][][] world = new Cube[WORLD_DIMENSIONS[0]][WORLD_DIMENSIONS[1]][WORLD_DIMENSIONS[2]];

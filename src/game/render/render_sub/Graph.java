@@ -1,6 +1,6 @@
-package game.render;
+package game.render.render_sub;
 
-import game.Screen;
+import game.render.Screen;
 
 public class Graph {
     public static void plot(int x, int y, String color, int intensity, Screen screen){
@@ -16,8 +16,10 @@ public class Graph {
         int y = y1;
         double deltaX = Math.abs(x2-x1);
         double deltaY = Math.abs(y2-y1);
-        int sign1 = (x2-x1)/Math.abs(x2-x1);
-        int sign2 = (y2-y1)/Math.abs(y2-y1);
+        int sign1;
+        int sign2;
+        if (x2-x1 != 0){sign1 = (x2-x1)/Math.abs(x2-x1);} else {sign1 = 1;}
+        if (y2-y1 != 0){sign2 = (y2-y1)/Math.abs(y2-y1);} else {sign2 = 1;}
         double temp;
         double interchange;
         if (deltaY>deltaX){
@@ -60,5 +62,6 @@ public class Graph {
         line(x2,y2,x3,y3,color,intensity,screen);
         line(x1,y1,x3,y3,color,intensity,screen);
         // fill code
+
     }
 }

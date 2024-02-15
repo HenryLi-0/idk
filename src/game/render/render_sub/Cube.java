@@ -1,11 +1,11 @@
-package game.render;
+package game.render.render_sub;
 
 import java.util.function.Supplier;
 
 import static resources.ConsoleColors.Text.*;
 
 public enum Cube{
-    AIR(() -> Texture.createEmptyTexture()),
+    AIR(() -> (Texture.createEmptyTexture())),
     GRASS(() -> Texture.createSolidTexture(GREEN)),
     STONE(() -> Texture.createSolidTexture(WHITE))
     ;
@@ -16,6 +16,3 @@ public enum Cube{
         this.texture = incoming;
     }
 }
-
-
-

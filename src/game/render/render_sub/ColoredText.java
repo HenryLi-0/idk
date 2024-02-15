@@ -1,4 +1,4 @@
-package game.render;
+package game.render.render_sub;
 
 import resources.ConsoleColors;
 

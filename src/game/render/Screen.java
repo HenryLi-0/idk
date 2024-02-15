@@ -1,6 +1,6 @@
-package game;
+package game.render;
 
-import game.render.ColoredText;
+import game.render.render_sub.ColoredText;
 import resources.ConsoleColors;
 import resources.Constants;
 
