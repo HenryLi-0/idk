@@ -1,13 +1,21 @@
 package game;
 
+import game.camera.CameraPosition;
+import game.render.DisplayWork;
 import game.render.Screen;
-import game.render.render_sub.Graph;
-import resources.ConsoleColors;
-import resources.Constants;
+import game.world.World;
+import static resources.Constants.Render.*;
+
+import java.awt.MouseInfo;
+
+import static resources.Constants.Game.*;
 
 public class MainGame {
-    private Screen screen = new Screen(Constants.Render.DISPLAY_DIMENSIONS[0], Constants.Render.DISPLAY_DIMENSIONS[1]);
+    private Screen screen = new Screen(DISPLAY_DIMENSIONS[0], DISPLAY_DIMENSIONS[1]);
+    private CameraPosition cameraPos = new CameraPosition(PLAYER_GRAVITY, PLAYER_COLLISION);
     private int gametime = 0;
+
+    private World world = new World();
 
     public MainGame(){
         screen.init();
@@ -16,28 +24,13 @@ public class MainGame {
     }
 
     public void displayTick(){
-        Graph.triangleFrame(0, 0, 0, 14, 149, 0, ConsoleColors.Text.GREEN, 9, screen);
+        cameraPos.setRotation(MouseInfo.getPointerInfo().getLocation().x,MouseInfo.getPointerInfo().getLocation().y);
+        DisplayWork.calculateWorld(world, screen);
         screen.display();
     }
 
     public void tick(){
-        for (int iy = 0; iy < Constants.Render.DISPLAY_DIMENSIONS[1]; iy++){
-            for (int ix = 0; ix < Constants.Render.DISPLAY_DIMENSIONS[0]; ix++){
-                screen.setIntensity(ix, iy, (ix+iy+gametime)%10);
-                switch ((iy) % 10){
-                    case 0: screen.setColor(ix, iy, ConsoleColors.Text.WHITE); break;
-                    case 1: screen.setColor(ix, iy, ConsoleColors.Text.BLACK); break;
-                    case 2: screen.setColor(ix, iy, ConsoleColors.Text.RED); break;
-                    case 3: screen.setColor(ix, iy, ConsoleColors.Text.YELLOW); break;
-                    case 4: screen.setColor(ix, iy, ConsoleColors.Text.GREEN); break;
-                    case 5: screen.setColor(ix, iy, ConsoleColors.Text.CYAN); break;
-                    case 6: screen.setColor(ix, iy, ConsoleColors.Text.BLUE); break;
-                    case 7: screen.setColor(ix, iy, ConsoleColors.Text.PURPLE); break;
-                    case 8: screen.setColor(ix, iy, ConsoleColors.Text.WHITE); break;
-                    case 9: screen.setColor(ix, iy, ConsoleColors.Text.WHITE); break;
-                }
-            }
-        }
+        
         gametime+=1;
     }
 

@@ -40,27 +40,21 @@ public class CameraPosition {
 
 
 
-    public void setPositions(double[] positions){
-        if (positions.length == 3){
-            x=positions[0];
-            y=positions[1];
-            z=positions[2];
-        }
+    public void setPositions(double nx, double ny, double nz){
+        x=nx;
+        y=ny;
+        z=nz;
     }
 
-    public void setVelocities(double[] velocities){
-        if (velocities.length == 3){
-            xv=velocities[0];
-            yv=velocities[1];
-            zv=velocities[2];
-        }
+    public void setVelocities(double nxv, double nyv, double nzv){
+        xv=nxv;
+        yv=nyv;
+        zv=nzv;
     }
 
-    public void setRotation(double[] rotations){
-        if (rotations.length == 2){
-            xrot=rotations[0];
-            yrot=rotations[1];
-        }
+    public void setRotation(double xrotation, double yrotation){
+        xrot=xrotation;
+        yrot=yrotation;
     }
 
 

@@ -22,6 +22,9 @@ public class Constants {
         // Camera Movement Related
         public static final double SIDEWAYS_VELOCITY_MULTIPLIER = 0.8; // Limits sideways velocity
         public static final double GRAVITY = 0.8; // Gravity
+
+        public static final boolean PLAYER_GRAVITY = false;
+        public static final boolean PLAYER_COLLISION = false;
         
     }
 }

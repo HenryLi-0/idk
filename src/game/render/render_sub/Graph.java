@@ -64,4 +64,20 @@ public class Graph {
         // fill code
 
     }
+
+
+    // point inside traingle credit: https://stackoverflow.com/a/2049593 
+    private int sign(int x1, int y1, int x2, int y2, int x3, int y3){
+        return (x1 -x3) * (y2 - y3) - (x2 - x3) * (y1 - y3);
+    }
+    private boolean insideTraingle(int tx, int ty, int x1, int y1, int x2, int y2, int x3, int y3){
+        int d1, d2, d3;
+        boolean has_neg, has_pos;
+        d1 = sign(tx,ty,x1,y1,x2,y2);
+        d2 = sign(tx,ty,x2,y2,x3,y3);
+        d3 = sign(tx,ty,x3,y3,x1,y1);
+        has_neg = (d1 < 0) || (d2 < 0) || (d3 < 0);
+        has_pos = (d1 > 0) || (d2 > 0) || (d3 > 0);
+        return !(has_neg && has_pos);
+    }
 }

@@ -27,12 +27,19 @@ public class Screen {
         }
     }
 
+    private boolean filterX(int x){return 0 <= x && x <= xSize-1;}
+    private boolean filterY(int y){return 0 <= y && y <= ySize-1;}
+
     public void setIntensity(int x, int y, int newPixel){
-        displayIntensity[x][y] = newPixel;
+        if (filterX(x) && filterY(y)){
+            displayIntensity[x][y] = newPixel;
+        }
     }
 
     public void setColor(int x, int y, String newPixel){
-        displayColor[x][y] = newPixel;
+        if (filterX(x) && filterY(y)){
+            displayColor[x][y] = newPixel;
+        }
     }
 
 
@@ -62,5 +69,10 @@ public class Screen {
             }
             System.out.println(rowBuffer + ConsoleColors.RESET);
         }
+        rowBuffer="";
+        for (int ix = 0; ix < xSize; ix++){
+            rowBuffer = rowBuffer + ColoredText.format("█",ConsoleColors.Text.WHITE);
+        }
+        System.out.println(rowBuffer + ConsoleColors.RESET);
     }
 }
