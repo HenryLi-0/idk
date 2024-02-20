@@ -17,5 +17,7 @@ https://youtu.be/vfPGuUDuwmo&t=765 for line drawing code (rewritten in java)
 
 https://stackoverflow.com/a/2049593 for point inside triangle code (translated to java)
 
-(TO DO/PLANNED) https://scratch.mit.edu/users/MathMathMath/ for 3D rendering concept (idea applied to java)
+https://scratch.mit.edu/users/MathMathMath/ for 3D rendering concept (idea applied to java)
+
+^ NEED TO APPLY PART 5
 

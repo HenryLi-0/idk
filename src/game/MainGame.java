@@ -4,6 +4,8 @@ import game.camera.CameraPosition;
 import game.render.DisplayWork;
 import game.render.Screen;
 import game.world.World;
+import resources.ConsoleColors;
+
 import static resources.Constants.Render.*;
 
 import java.awt.MouseInfo;
@@ -26,6 +28,7 @@ public class MainGame {
     public void displayTick(){
         cameraPos.setRotation(MouseInfo.getPointerInfo().getLocation().x,MouseInfo.getPointerInfo().getLocation().y);
         DisplayWork.calculateWorld(world, screen);
+        DisplayWork.renderWireframe(1, 1, 1, 10, 10, 10, ConsoleColors.Text.CYAN, 5, screen, cameraPos);
         screen.display();
     }
 
