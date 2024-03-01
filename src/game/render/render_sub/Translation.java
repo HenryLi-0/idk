@@ -37,11 +37,16 @@ public class Translation {
         return returning;
     }
 
-    public static int[] line(double x1, double y1, double z1, double x2, double y2, double z2, CameraPosition camera){
-        double[] point1 = pointFixOff(x1,y1,z1,camera);
-        double[] point2 = pointFixOff(x2,y2,z2,camera);
+    public static int[] line(double ix1, double iy1, double iz1, double ix2, double iy2, double iz2, CameraPosition camera){
+        double[] point1 = pointFixOff(ix1,iy1,iz1,camera);
+        double[] point2 = pointFixOff(ix2,iy2,iz2,camera);
 
-        if (!((x1 < NEAR_PLANE) && (x2 < NEAR_PLANE))) {
+        double x1 = ix1; double y1 = iy1; double z1 = iz1;
+        double x2 = ix2; double y2 = iy2; double z2 = iz2;
+
+        
+
+        if (!((z1 < NEAR_PLANE) && (z2 < NEAR_PLANE))) {
             // Z Clipping
             if ( (z1 < NEAR_PLANE) || (x2 < NEAR_PLANE)){
                 double percent = ((NEAR_PLANE-z1)/(z2-z1));
@@ -61,7 +66,7 @@ public class Translation {
             return returning;
         }
 
-        int[] illegal = {-1,-1,-1,-1};
+        int[] illegal = {-999,-999,-999,-999};
         return illegal;
     }
 }

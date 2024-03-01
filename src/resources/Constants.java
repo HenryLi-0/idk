@@ -4,7 +4,7 @@ public class Constants {
     public class Render {
         // Imagery Related
         public static final String[] INTENSITY = {" ", ".", ".", "░", "░", "▒", "▒", "▓", "▓", "█"};
-        public static final int[] DISPLAY_DIMENSIONS = {150,15};
+        public static final int[] DISPLAY_DIMENSIONS = {75,15};
         public static final int TEXTURE_AXIS = 8; // Describes pixel length of a texture (ex: TEXTURE_AXIS = 8, texture will be 8x8)
         public static final int TEXTURE_SIZE = TEXTURE_AXIS*TEXTURE_AXIS;
 

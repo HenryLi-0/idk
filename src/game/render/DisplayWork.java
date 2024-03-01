@@ -4,6 +4,7 @@ import game.camera.CameraPosition;
 import game.render.render_sub.Graph;
 import game.render.render_sub.Translation;
 import game.world.World;
+import static resources.Constants.Render.*;
 
 public class DisplayWork {
     public static void calculateWorld(World world, Screen screen){
@@ -46,6 +47,6 @@ public class DisplayWork {
 
     public static void lineRender(int x1, int y1, int z1, int x2, int y2, int z2, String color, int intensity, Screen screen, CameraPosition camera){
         int[] draw = Translation.line(x1, y1, z1, x2, y2, z2, camera);
-        Graph.line(draw[0], draw[1], draw[2], draw[3], color, intensity, screen);
+        Graph.line(draw[0] + DISPLAY_DIMENSIONS[0]/2, draw[1] + DISPLAY_DIMENSIONS[1]/2, draw[2] + DISPLAY_DIMENSIONS[0]/2, draw[3] + DISPLAY_DIMENSIONS[1]/2, color, intensity, screen);
     }
 }

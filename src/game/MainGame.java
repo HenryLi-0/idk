@@ -28,7 +28,7 @@ public class MainGame {
     public void displayTick(){
         cameraPos.setRotation(MouseInfo.getPointerInfo().getLocation().x,MouseInfo.getPointerInfo().getLocation().y);
         DisplayWork.calculateWorld(world, screen);
-        DisplayWork.renderWireframe(1, 1, 1, 10, 10, 10, ConsoleColors.Text.CYAN, 5, screen, cameraPos);
+        DisplayWork.renderWireframe(-5, -5, 1, 5, 5, 6, ConsoleColors.Text.CYAN, 5, screen, cameraPos);
         screen.display();
     }
 
