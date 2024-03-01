@@ -44,8 +44,6 @@ public class Translation {
         double x1 = ix1; double y1 = iy1; double z1 = iz1;
         double x2 = ix2; double y2 = iy2; double z2 = iz2;
 
-        
-
         if (!((z1 < NEAR_PLANE) && (z2 < NEAR_PLANE))) {
             // Z Clipping
             if ( (z1 < NEAR_PLANE) || (x2 < NEAR_PLANE)){
