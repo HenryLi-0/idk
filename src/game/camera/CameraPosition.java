@@ -84,10 +84,11 @@ public class CameraPosition {
     /**
      * Get Trignometric Rotations
      * NOTE: RUN updateTrigRotations() TO GET UP-TO-DATE MEASURES
+     * sinx, siny, cosx, cosy
      * @return double[]
      */
     public double[] getTrigRotations(){
-        double[] temp = {};
+        double[] temp = {sinx, siny, cosx, cosy};
         return temp;
     }
 
