@@ -3,7 +3,7 @@ package game.camera;
 import game.world.World;
 import static resources.Constants.Game.*;
 
-public class CameraPosition {
+public class Camera {
     private double x = 0; private double xv = 0;
     private double y = 0; private double yv = 0;
     private double z = 0; private double zv = 0;
@@ -14,7 +14,7 @@ public class CameraPosition {
     private boolean gravity;
     private boolean collision;
 
-    public CameraPosition(boolean ngravity, boolean ncollision){
+    public Camera(boolean ngravity, boolean ncollision){
         gravity = ngravity;
         collision = ncollision;
     }
@@ -53,8 +53,6 @@ public class CameraPosition {
         yrot=yrotation;
     }
 
-
-
     public double[] getPosition(){
         double[] temp = {x,y,z};
         return temp;
@@ -75,10 +73,10 @@ public class CameraPosition {
      * @return void
      */
     public void updateTrigRotations(){
-        sinx = Math.sin(xrot);
-        siny = Math.sin(yrot);
-        cosx = Math.cos(xrot);
-        cosy = Math.cos(yrot); 
+        sinx = Math.sin(Math.toDegrees(xrot));
+        siny = Math.sin(Math.toDegrees(yrot));
+        cosx = Math.cos(Math.toDegrees(xrot));
+        cosy = Math.cos(Math.toDegrees(yrot)); 
     }
 
     /**

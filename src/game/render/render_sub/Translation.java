@@ -2,7 +2,7 @@ package game.render.render_sub;
 
 import static resources.Constants.Render.*;
 
-import game.camera.CameraPosition;
+import game.camera.Camera;
 
 public class Translation {
     // 3D frame rendering code credit: https://scratch.mit.edu/users/MathMathMath/
@@ -16,7 +16,7 @@ public class Translation {
      * @param camera
      * @return int[]
      */
-    public static int[] point(double rawX, double rawY, double rawZ, CameraPosition camera){
+    public static int[] point(double rawX, double rawY, double rawZ, Camera camera){
         double[] cameraPosition = camera.getPosition();
         double x = rawX - cameraPosition[0];
         double y = rawY - cameraPosition[1];
@@ -28,7 +28,7 @@ public class Translation {
     }
 
     // NO ROUNDING
-    private static double[] pointNR(double rawX, double rawY, double rawZ, CameraPosition camera){
+    private static double[] pointNR(double rawX, double rawY, double rawZ, Camera camera){
         double[] cameraPosition = camera.getPosition();
         double x = rawX - cameraPosition[0];
         double y = rawY - cameraPosition[1];
@@ -39,13 +39,13 @@ public class Translation {
         return returning;
     }
 
-    private static double[] pointFixOff(double rawX, double rawY, double rawZ, CameraPosition camera){
+    private static double[] pointFixOff(double rawX, double rawY, double rawZ, Camera camera){
         double[] cameraPosition = camera.getPosition();
         double[] returning = {cameraPosition[0], cameraPosition[1], cameraPosition[2]};
         return returning;
     }
 
-    public static int[] line(double ix1, double iy1, double iz1, double ix2, double iy2, double iz2, CameraPosition camera){
+    public static int[] line(double ix1, double iy1, double iz1, double ix2, double iy2, double iz2, Camera camera){
         double[] point1 = pointFixOff(ix1,iy1,iz1,camera);
         double[] point2 = pointFixOff(ix2,iy2,iz2,camera);
 
@@ -65,18 +65,15 @@ public class Translation {
 
         y1 = point1[1] * trigValues[2] - point1[2] * trigValues[0]; // cos x, sin x 
         z1 = point1[1] * trigValues[0] + point1[2] * trigValues[2]; // sin x, cos x
-        point1[0] = x1; point1[1] = y1; point1[2] = z1;
+        point1[1] = y1; point1[2] = z1;
 
         y2 = point2[1] * trigValues[2] - point2[2] * trigValues[0]; // cos x, sin x 
         z2 = point2[1] * trigValues[0] + point2[2] * trigValues[2]; // sin x, cos x
-        point2[0] = x2; point2[1] = y2; point2[2] = z1;
+        point2[0] = x2; point2[1] = y2; point2[2] = z2;
 
 
         x1 = point1[0]; y1 = point1[1]; z1 = point1[2];
         x2 = point2[0]; y2 = point2[1]; z2 = point2[2];
-
-        y1 = y1 * trigValues[2] - z1 * trigValues[0]; // cos x, sin x
-
 
         if (!((z1 < NEAR_PLANE) && (z2 < NEAR_PLANE))) {
             // Z Clipping
@@ -95,6 +92,7 @@ public class Translation {
             int[] point1r = point(point1[0], point1[1], point1[2], camera);
             int[] point2r = point(point2[0], point2[1], point2[2], camera);
             int[] returning = {point1r[0], point1r[1], point2r[0], point2r[1]};
+            System.out.println("" + point1r[0] + point1r[1] + point2r[0] + point2r[1]);
             return returning;
         }
 

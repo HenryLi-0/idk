@@ -1,6 +1,6 @@
 package game.render;
 
-import game.camera.CameraPosition;
+import game.camera.Camera;
 import game.render.render_sub.Graph;
 import game.render.render_sub.Translation;
 import game.world.World;
@@ -8,11 +8,11 @@ import game.world.World;
 import static resources.Constants.Render.*;
 
 public class DisplayWork {
-    public static void calculateWorld(World world, Screen screen){
-        
+    public static void calculateWorld(World world, Screen screen, Camera camera){
+        // camera.updateTrigRotations();
     }
 
-    public static void renderWireframe(double x1, double y1, double z1, double x2, double y2, double z2, String color, int intensity, Screen screen, CameraPosition camera){
+    public static void renderWireframe(double x1, double y1, double z1, double x2, double y2, double z2, String color, int intensity, Screen screen, Camera camera){
         if (x1==x2){
             lineRender(x1, y1, z1, x1, y1, z2, color, intensity, screen, camera);
             lineRender(x1, y1, z1, x1, y2, z1, color, intensity, screen, camera);
@@ -46,18 +46,17 @@ public class DisplayWork {
         }
     }
 
-    public static void lineRender(double x1, double y1, double z1, double x2, double y2, double z2, String color, int intensity, Screen screen, CameraPosition camera){
-        int[] temp = Translation.line(x1, y1, z1, x2, y2, z2, camera);
-        double[] draw = {temp[0], temp[1]};
+    public static void lineRender(double x1, double y1, double z1, double x2, double y2, double z2, String color, int intensity, Screen screen, Camera camera){
+        int[] draw = Translation.line(x1, y1, z1, x2, y2, z2, camera);
         if (!(draw[0]== -999 && draw[1]== -999 && draw[2]== -999 && draw[3]== -999)){
             double slope = (y2-y1)/(x2-x1+0.000001);
             double y_int = y1-(x1*slope);
 
             // Cut off off screen based on slope (limits x)
-            if (draw[0] < -HALF_X){draw[0] = -HALF_X; draw[1] = (-HALF_X) * slope + y_int;}
-            if (draw[0] >  HALF_X){draw[0] =  HALF_X; draw[1] = ( HALF_X) * slope + y_int;}
-            if (draw[2] < -HALF_X){draw[2] = -HALF_X; draw[3] = (-HALF_X) * slope + y_int;}
-            if (draw[2] >  HALF_X){draw[2] =  HALF_X; draw[3] = ( HALF_X) * slope + y_int;}
+            if (draw[0] < -HALF_X){draw[0] = (int) Math.ceil(-HALF_X); draw[1] = (int) Math.ceil((-HALF_X) * slope + y_int);}
+            if (draw[0] >  HALF_X){draw[0] = (int) Math.ceil( HALF_X); draw[1] = (int) Math.ceil(( HALF_X) * slope + y_int);}
+            if (draw[2] < -HALF_X){draw[2] = (int) Math.ceil(-HALF_X); draw[3] = (int) Math.ceil((-HALF_X) * slope + y_int);}
+            if (draw[2] >  HALF_X){draw[2] = (int) Math.ceil( HALF_X); draw[3] = (int) Math.ceil(( HALF_X) * slope + y_int);}
 
             // Cut off off screen based on slope (limits y)
 

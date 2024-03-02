@@ -75,5 +75,15 @@ public class Screen {
             rowBuffer = rowBuffer + ColoredText.format("██",ConsoleColors.Text.WHITE);
         }
         System.out.println(rowBuffer + ConsoleColors.RESET);
+        clearDisplay();
+    }
+
+    public void clearDisplay(){
+        for (int iy = 0; iy < ySize; iy++){
+            for (int ix = 0; ix < xSize; ix++){
+                setIntensity(ix, iy, 0);
+                setColor(ix, iy, ConsoleColors.Text.BLACK);
+            }
+        }
     }
 }
