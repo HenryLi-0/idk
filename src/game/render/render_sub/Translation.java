@@ -15,7 +15,7 @@ public class Translation {
         double z = rawZ - cameraPosition[2];
         double rx = VIEW_FACTOR * x/z; 
         double ry = VIEW_FACTOR * y/z;
-        int[] returning = {(int) Math.round(rx),(int) Math.round(ry)};
+        int[] returning = {(int) Math.round(rx), (int) Math.round(ry)};
         return returning;
     }
 
@@ -37,11 +37,11 @@ public class Translation {
         return returning;
     }
 
-    public static int[] line(double x1, double y1, double z1, double x2, double y2, double z2, CameraPosition camera){
+    public static double[] line(double x1, double y1, double z1, double x2, double y2, double z2, CameraPosition camera){
         double[] point1 = pointFixOff(x1,y1,z1,camera);
         double[] point2 = pointFixOff(x2,y2,z2,camera);
 
-        if (!((x1 < NEAR_PLANE) && (x2 < NEAR_PLANE))) {
+        if (!((z1 < NEAR_PLANE) && (z2 < NEAR_PLANE))) {
             // Z Clipping
             if ( (z1 < NEAR_PLANE) || (x2 < NEAR_PLANE)){
                 double percent = ((NEAR_PLANE-z1)/(z2-z1));
@@ -55,13 +55,13 @@ public class Translation {
                     point2[2] = NEAR_PLANE;
                 } else {}
             }
-            int[] point1r = point(x1, y1, z1, camera);
-            int[] point2r = point(x2, y2, z2, camera);
-            int[] returning = {point1r[0], point1r[1], point2r[0], point2r[1]};
+            double[] point1r = pointNR(x1, y1, z1, camera);
+            double[] point2r = pointNR(x2, y2, z2, camera);
+            double[] returning = {point1r[0], point1r[1], point2r[0], point2r[1]};
             return returning;
         }
-
-        int[] illegal = {-1,-1,-1,-1};
+        // System.out.println("Uh Oh! the coords (" + x1 + "," + y1 + "," + z1 + ") to (" + x2 + "," + y2 + "," + z2 + ") are illegal!");
+        double[] illegal = {-999,-999,-999,-999};
         return illegal;
     }
 }

@@ -65,13 +65,14 @@ public class Screen {
         for (int iy = ySize-1; iy > -1; iy--){
             rowBuffer="";
             for (int ix = 0; ix < xSize; ix++){
-                rowBuffer = rowBuffer + ColoredText.format(Constants.Render.INTENSITY[displayIntensity[ix][iy]],displayColor[ix][iy]);
+                // The character is displayed twice so it looks more like a square
+                rowBuffer = rowBuffer + ColoredText.format(Constants.Render.INTENSITY[displayIntensity[ix][iy]] + Constants.Render.INTENSITY[displayIntensity[ix][iy]],displayColor[ix][iy]);
             }
             System.out.println(rowBuffer + ConsoleColors.RESET);
         }
         rowBuffer="";
         for (int ix = 0; ix < xSize; ix++){
-            rowBuffer = rowBuffer + ColoredText.format("█",ConsoleColors.Text.WHITE);
+            rowBuffer = rowBuffer + ColoredText.format("██",ConsoleColors.Text.WHITE);
         }
         System.out.println(rowBuffer + ConsoleColors.RESET);
     }

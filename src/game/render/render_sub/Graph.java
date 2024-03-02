@@ -1,9 +1,11 @@
 package game.render.render_sub;
 
 import game.render.Screen;
+import resources.ConsoleColors;
 
 public class Graph {
     public static void plot(int x, int y, String color, int intensity, Screen screen){
+        // System.out.println(color + "attempt to change pixel (" + x + "," + y + ")" + ConsoleColors.RESET);
         screen.setColor(x, y, color);
         if (intensity != -1){
             screen.setIntensity(x, y, intensity);
@@ -11,18 +13,18 @@ public class Graph {
     }
 
     public static void line(int x1, int y1, int x2, int y2, String color, int intensity, Screen screen){
-        // line code credit: https://youtu.be/vfPGuUDuwmo?si=LOlGcDL95R-CBI1k&t=765 
+        // line code credit: https://youtu.be/vfPGuUDuwmo&t=765 
         int x = x1;
         int y = y1;
         double deltaX = Math.abs(x2-x1);
         double deltaY = Math.abs(y2-y1);
         int sign1;
         int sign2;
-        if (x2-x1 != 0){sign1 = (x2-x1)/Math.abs(x2-x1);} else {sign1 = 1;}
-        if (y2-y1 != 0){sign2 = (y2-y1)/Math.abs(y2-y1);} else {sign2 = 1;}
+        if (x2-x1 != 0){sign1 = (x2-x1)/Math.abs(x2-x1);} else {sign1 = 0;}
+        if (y2-y1 != 0){sign2 = (y2-y1)/Math.abs(y2-y1);} else {sign2 = 0;}
         double temp;
         double interchange;
-        if (deltaY>deltaX){
+        if (deltaY > deltaX){
             temp = deltaX;
             deltaX = deltaY;
             deltaY = temp;

@@ -4,13 +4,15 @@ public class Constants {
     public class Render {
         // Imagery Related
         public static final String[] INTENSITY = {" ", ".", ".", "░", "░", "▒", "▒", "▓", "▓", "█"};
-        public static final int[] DISPLAY_DIMENSIONS = {150,15};
+        public static final int[] DISPLAY_DIMENSIONS = {75,15};
+        public static final double HALF_X = DISPLAY_DIMENSIONS[0]/2;
+        public static final double HALF_Y = DISPLAY_DIMENSIONS[1]/2;
         public static final int TEXTURE_AXIS = 8; // Describes pixel length of a texture (ex: TEXTURE_AXIS = 8, texture will be 8x8)
         public static final int TEXTURE_SIZE = TEXTURE_AXIS*TEXTURE_AXIS;
 
         // Rendering Engine Related
         public static final int VIEW_FACTOR = 1; 
-        public static final int NEAR_PLANE = 0; // Has to be greater than 0 
+        public static final double NEAR_PLANE = 1; // Has to be greater than 0 
     }
 
     public class Game {

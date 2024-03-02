@@ -28,12 +28,16 @@ public class MainGame {
     public void displayTick(){
         cameraPos.setRotation(MouseInfo.getPointerInfo().getLocation().x,MouseInfo.getPointerInfo().getLocation().y);
         DisplayWork.calculateWorld(world, screen);
-        DisplayWork.renderWireframe(1, 1, 1, 10, 10, 10, ConsoleColors.Text.CYAN, 5, screen, cameraPos);
+        // for (int i = -3; i<=3; i++){
+        //     for (int ie = -3; ie<=3; ie++){
+        //         DisplayWork.renderWireframe(i*3, 1, ie*3, (i+1)*3, 4, (ie+1)*3, ConsoleColors.Text.RED, 5, screen, cameraPos);
+        //     }
+        // } 
+        DisplayWork.renderWireframe(-10, -10, 2, 10, 10, 5, ConsoleColors.Text.CYAN, 5, screen, cameraPos);
         screen.display();
     }
 
     public void tick(){
-        
         gametime+=1;
     }
 
