@@ -4,16 +4,12 @@ import game.world.World;
 import static resources.Constants.Game.*;
 
 public class CameraPosition {
-    private double x = 0; 
-    private double y = 0; 
-    private double z = 0;
+    private double x = 0; private double xv = 0;
+    private double y = 0; private double yv = 0;
+    private double z = 0; private double zv = 0;
     
-    private double xrot = 0; 
-    private double yrot = 0;
-    
-    private double xv = 0; 
-    private double yv = 0; 
-    private double zv = 0;
+    private double xrot = 0; private double sinx = 0; private double siny = 0;
+    private double yrot = 0; private double cosx = 0; private double cosy = 0;
 
     private boolean gravity;
     private boolean collision;
@@ -71,6 +67,28 @@ public class CameraPosition {
 
     public double[] getRotation(){
         double[] temp = {xrot,yrot};
+        return temp;
+    }
+
+    /**
+     * Update Trignometric Rotations
+     * @return void
+     */
+    public void updateTrigRotations(){
+        sinx = Math.sin(xrot);
+        siny = Math.sin(yrot);
+        cosx = Math.cos(xrot);
+        cosy = Math.cos(yrot); 
+    }
+
+    /**
+     * Get Trignometric Rotations
+     * NOTE: RUN updateTrigRotations() TO GET UP-TO-DATE MEASURES
+     * sinx, siny, cosx, cosy
+     * @return double[]
+     */
+    public double[] getTrigRotations(){
+        double[] temp = {sinx, siny, cosx, cosy};
         return temp;
     }
 

@@ -5,8 +5,8 @@ public class Constants {
         // Imagery Related
         public static final String[] INTENSITY = {" ", ".", ".", "░", "░", "▒", "▒", "▓", "▓", "█"};
         public static final int[] DISPLAY_DIMENSIONS = {75,15};
-        public static final double HALF_X = DISPLAY_DIMENSIONS[0]/2;
-        public static final double HALF_Y = DISPLAY_DIMENSIONS[1]/2;
+        public static final double HALF_X = Math.ceil(DISPLAY_DIMENSIONS[0]/2);
+        public static final double HALF_Y = Math.ceil(DISPLAY_DIMENSIONS[1]/2);
         public static final int TEXTURE_AXIS = 8; // Describes pixel length of a texture (ex: TEXTURE_AXIS = 8, texture will be 8x8)
         public static final int TEXTURE_SIZE = TEXTURE_AXIS*TEXTURE_AXIS;
 

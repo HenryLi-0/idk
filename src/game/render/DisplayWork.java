@@ -4,7 +4,6 @@ import game.camera.CameraPosition;
 import game.render.render_sub.Graph;
 import game.render.render_sub.Translation;
 import game.world.World;
-import resources.ConsoleColors;
 
 import static resources.Constants.Render.*;
 
@@ -48,7 +47,8 @@ public class DisplayWork {
     }
 
     public static void lineRender(double x1, double y1, double z1, double x2, double y2, double z2, String color, int intensity, Screen screen, CameraPosition camera){
-        double[] draw = Translation.line(x1, y1, z1, x2, y2, z2, camera);
+        int[] temp = Translation.line(x1, y1, z1, x2, y2, z2, camera);
+        double[] draw = {temp[0], temp[1]};
         if (!(draw[0]== -999 && draw[1]== -999 && draw[2]== -999 && draw[3]== -999)){
             double slope = (y2-y1)/(x2-x1+0.000001);
             double y_int = y1-(x1*slope);

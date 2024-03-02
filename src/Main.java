@@ -9,15 +9,15 @@ public class Main {
 
         game.displayTick();
 
-        // while (true){
-        //     if (System.currentTimeMillis()>=lastDisplayUpdate+MAX_FPS_DELAY){
-        //         lastDisplayUpdate=System.currentTimeMillis();
-        //         game.displayTick();
-        //     }
-        //     if (System.currentTimeMillis()>=lastTickUpdate+TICK_DELAY){
-        //         lastTickUpdate=System.currentTimeMillis();
-        //         game.tick();
-        //     }
-        // }
+        while (true){
+            if (System.currentTimeMillis()>=lastDisplayUpdate+MAX_FPS_DELAY){
+                lastDisplayUpdate=System.currentTimeMillis();
+                game.displayTick();
+            }
+            if (System.currentTimeMillis()>=lastTickUpdate+TICK_DELAY){
+                lastTickUpdate=System.currentTimeMillis();
+                game.tick();
+            }
+        }
     }
 }
