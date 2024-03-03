@@ -14,11 +14,12 @@ public class Constants {
         // Rendering Engine Related
         public static final int VIEW_FACTOR = 1; 
         public static final double NEAR_PLANE = 1; // Has to be greater than 0 
+        public static final int MAX_LINE_CALCULATIONS = 100; // Limits how many pixels a line should calculate
     }
 
     public class Game {
         // Ticking Related
-        public static final int MAX_FPS = 3; // How many times the screen refreshes per second
+        public static final int MAX_FPS = 10; // How many times the screen refreshes per second
         public static final int MAX_FPS_DELAY = 1000/MAX_FPS;
         public static final int TPS = 20; // How many times the game updates per second
         public static final long TICK_DELAY = 1000/TPS;

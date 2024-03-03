@@ -41,7 +41,7 @@ public class Translation {
 
     private static double[] pointFixOff(double rawX, double rawY, double rawZ, Camera camera){
         double[] cameraPosition = camera.getPosition();
-        double[] returning = {cameraPosition[0], cameraPosition[1], cameraPosition[2]};
+        double[] returning = {rawX - cameraPosition[0], rawY - cameraPosition[1], rawZ - cameraPosition[2]};
         return returning;
     }
 
@@ -49,32 +49,34 @@ public class Translation {
         double[] point1 = pointFixOff(ix1,iy1,iz1,camera);
         double[] point2 = pointFixOff(ix2,iy2,iz2,camera);
 
-        double x1 = ix1; double y1 = iy1; double z1 = iz1;
-        double x2 = ix2; double y2 = iy2; double z2 = iz2;
+        double x1 = point1[0]; double y1 = point1[1]; double z1 = point1[2];
+        double x2 = point2[0]; double y2 = point2[1]; double z2 = point2[2];
         
         // Trignometric Rotation Values Returned As: sinx, siny, cosx, cosy
         double[] trigValues = camera.getTrigRotations();
         
-        x1 = point1[2] * trigValues[1] + point1[0] * trigValues[3]; // sin y, cos y 
-        z1 = point1[2] * trigValues[3] - point1[0] * trigValues[1]; // cos y, sin y
+        x1 = (point1[2] * trigValues[1]) + (point1[0] * trigValues[3]); // sin y, cos y 
+        z1 = (point1[2] * trigValues[3]) - (point1[0] * trigValues[1]); // cos y, sin y
         point1[0] = x1; point1[1] = y1; point1[2] = z1;
 
-        x2 = point2[2] * trigValues[1] + point2[0] * trigValues[3]; // sin y, cos y
-        z2 = point2[2] * trigValues[3] - point2[0] * trigValues[1]; // cos y, sin y
+        x2 = (point2[2] * trigValues[1]) + (point2[0] * trigValues[3]); // sin y, cos y
+        z2 = (point2[2] * trigValues[3]) - (point2[0] * trigValues[1]); // cos y, sin y
         point2[0] = x2; point2[1] = y2; point1[2] = z2;
 
-        y1 = point1[1] * trigValues[2] - point1[2] * trigValues[0]; // cos x, sin x 
-        z1 = point1[1] * trigValues[0] + point1[2] * trigValues[2]; // sin x, cos x
-        point1[1] = y1; point1[2] = z1;
+        y1 = (point1[1] * trigValues[2]) - (point1[2] * trigValues[0]); // cos x, sin x 
+        z1 = (point1[1] * trigValues[0]) + (point1[2] * trigValues[2]); // sin x, cos x
+        point1[1] = y1; point1[1] = y1; point1[2] = z1;
 
-        y2 = point2[1] * trigValues[2] - point2[2] * trigValues[0]; // cos x, sin x 
-        z2 = point2[1] * trigValues[0] + point2[2] * trigValues[2]; // sin x, cos x
+        y2 = (point2[1] * trigValues[2]) - (point2[2] * trigValues[0]); // cos x, sin x 
+        z2 = (point2[1] * trigValues[0]) + (point2[2] * trigValues[2]); // sin x, cos x
         point2[0] = x2; point2[1] = y2; point2[2] = z2;
 
 
         x1 = point1[0]; y1 = point1[1]; z1 = point1[2];
         x2 = point2[0]; y2 = point2[1]; z2 = point2[2];
 
+        System.out.println(ix1 + " " + iy1 + " " + iz1 + " " + ix2 + " " + iy2 + " " + iz2);
+        System.out.println(x1 + " " + y1 + " " + z1 + " " + x2 + " " + y2 + " " + z2);
         if (!((z1 < NEAR_PLANE) && (z2 < NEAR_PLANE))) {
             // Z Clipping
             if ( (z1 < NEAR_PLANE) || (x2 < NEAR_PLANE)){

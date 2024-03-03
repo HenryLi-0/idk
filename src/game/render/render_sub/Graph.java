@@ -2,6 +2,7 @@ package game.render.render_sub;
 
 import game.render.Screen;
 import resources.ConsoleColors;
+import static resources.Constants.Render.*;
 
 public class Graph {
     public static void plot(int x, int y, String color, int intensity, Screen screen){
@@ -35,6 +36,7 @@ public class Graph {
         double e = 2 * deltaY - deltaX;
         double a = 2 * deltaY;
         double b = 2 * deltaY - 2 * deltaX;
+        int counter = 0;
         plot(x,y,color,intensity,screen);
         for (int i = 1; i <= deltaX; i++){
             if (e < 0){
@@ -50,6 +52,11 @@ public class Graph {
                 e = e + b;                
             }
             plot(x,y,color,intensity,screen);
+            counter++;
+
+            if (counter > MAX_LINE_CALCULATIONS){
+                break;
+            }
         }
     }
 

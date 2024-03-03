@@ -26,7 +26,7 @@ public class MainGame {
     }
 
     public void displayTick(){
-        camera.setRotation(MouseInfo.getPointerInfo().getLocation().x/5 + PHYSICAL_DISPLAY_DIMENSIONS[0]/2,MouseInfo.getPointerInfo().getLocation().y/5 + PHYSICAL_DISPLAY_DIMENSIONS[1]/2);
+        camera.setRotation(-MouseInfo.getPointerInfo().getLocation().getY() - PHYSICAL_DISPLAY_DIMENSIONS[0]/2,MouseInfo.getPointerInfo().getLocation().getX() - PHYSICAL_DISPLAY_DIMENSIONS[1]/2);
         DisplayWork.calculateWorld(world, screen, camera);
         // for (int i = -3; i<=3; i++){
             //     for (int ie = -3; ie<=3; ie++){
@@ -34,7 +34,8 @@ public class MainGame {
                 //     }
                 // } 
         camera.updateTrigRotations();
-        DisplayWork.renderWireframe(-10, -10, 2, 10, 10, 5, ConsoleColors.Text.CYAN, 5, screen, camera);
+        System.out.println("" + camera.getTrigRotations()[0] + " " + camera.getTrigRotations()[1]);
+        DisplayWork.renderWireframe(-10, -10, 15, 10, 10, 20, ConsoleColors.Text.CYAN, 5, screen, camera);
         screen.display();
     }
 

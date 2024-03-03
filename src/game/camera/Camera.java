@@ -73,10 +73,10 @@ public class Camera {
      * @return void
      */
     public void updateTrigRotations(){
-        sinx = Math.sin(Math.toDegrees(xrot));
-        siny = Math.sin(Math.toDegrees(yrot));
-        cosx = Math.cos(Math.toDegrees(xrot));
-        cosy = Math.cos(Math.toDegrees(yrot)); 
+        sinx = Math.sin(Math.toRadians(xrot));
+        siny = Math.sin(Math.toRadians(yrot));
+        cosx = Math.cos(Math.toRadians(xrot));
+        cosy = Math.cos(Math.toRadians(yrot)); 
     }
 
     /**
