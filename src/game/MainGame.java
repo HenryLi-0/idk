@@ -34,8 +34,8 @@ public class MainGame {
                 //     }
                 // } 
         camera.updateTrigRotations();
-        System.out.println("" + camera.getTrigRotations()[0] + " " + camera.getTrigRotations()[1]);
-        DisplayWork.renderWireframe(-10, -10, 15, 10, 10, 20, ConsoleColors.Text.CYAN, 5, screen, camera);
+        // System.out.println("" + camera.getTrigRotations()[0] + " " + camera.getTrigRotations()[1]);
+        DisplayWork.renderWireframe(-3, -3, 15, 3, 3, 21, ConsoleColors.Text.CYAN, 5, screen, camera);
         screen.display();
     }
 

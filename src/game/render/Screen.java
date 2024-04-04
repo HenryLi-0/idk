@@ -65,7 +65,7 @@ public class Screen {
         return (!filterX(x) || !filterY(y)) ? ConsoleColors.Text.BLACK : displayColor[x][y];
     }
 
-    /*
+    /**
      * Runs the display printer
      */
     public void display(){

@@ -77,9 +77,9 @@ public class Translation {
             x2 = point2[0]; y2 = point2[1]; z2 = point2[2];
         }
 
-        
-        System.out.println(ix1 + " " + iy1 + " " + iz1 + " " + ix2 + " " + iy2 + " " + iz2);
-        System.out.println(x1 + " " + y1 + " " + z1 + " " + x2 + " " + y2 + " " + z2);
+        // System.out.println(ix1 + " " + iy1 + " " + iz1 + " " + ix2 + " " + iy2 + " " + iz2);
+        // System.out.println(x1 + " " + y1 + " " + z1 + " " + x2 + " " + y2 + " " + z2);
+
         if (!((z1 < NEAR_PLANE) && (z2 < NEAR_PLANE))) {
             // Z Clipping
             if ( (z1 < NEAR_PLANE) || (x2 < NEAR_PLANE)){
@@ -97,7 +97,7 @@ public class Translation {
             int[] point1r = point(point1[0], point1[1], point1[2], camera);
             int[] point2r = point(point2[0], point2[1], point2[2], camera);
             int[] returning = {point1r[0], point1r[1], point2r[0], point2r[1]};
-            System.out.println("" + point1r[0] + point1r[1] + point2r[0] + point2r[1]);
+            // System.out.println("" + point1r[0] + point1r[1] + point2r[0] + point2r[1]);
             return returning;
         }
 
