@@ -1,13 +1,8 @@
 # idk
 i dont really know
 
-some unicode characters for lighting = ["█", "▓", "▓", "▒", "▒", "░", "░", "┉", "┉", " "]
-
-some unicode characters for lighting = [" ", "┉", "┉", "░", "░", "▒", "▒", "▓", "▓", "█"]
-
 # Notes:
 
-unfortunately, it seems that color text and color backgrounds don't work together
 
 # Some Credits:
 
@@ -22,6 +17,8 @@ https://scratch.mit.edu/users/MathMathMath/ for 3D rendering concept (idea appli
 ^ NEED TO APPLY PART 5
 
 ## Issues That (probably) Can't Be Fixed:
+
+- unfortunately, it seems that color text and color backgrounds don't work together
 
 - high quality (using braille) display will have bad quality in terms of color (one character can only have one color)
 
