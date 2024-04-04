@@ -1,7 +1,6 @@
 package game.render.render_sub;
 
 import game.render.Screen;
-import resources.ConsoleColors;
 import static resources.Constants.Render.*;
 
 public class Graph {

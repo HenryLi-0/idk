@@ -21,3 +21,8 @@ https://scratch.mit.edu/users/MathMathMath/ for 3D rendering concept (idea appli
 
 ^ NEED TO APPLY PART 5
 
+## Issues That (probably) Can't Be Fixed:
+
+- high quality (using braille) display will have bad quality in terms of color (one character can only have one color)
+
+- there my be an issue that my terminal isn't printing braille characters (they are the amazing ?)

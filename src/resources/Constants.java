@@ -4,6 +4,7 @@ public class Constants {
     public class Render {
         // Imagery Related
         public static final String[] INTENSITY = {" ", ".", ".", "░", "░", "▒", "▒", "▓", "▓", "█"};
+        public static final String[] BRAILLE = {" ","⠁","⠂","⠃","⠄","⠅","⠆","⠇","⠈","⠉","⠊","⠋","⠌","⠍","⠎","⠏","⠐","⠑","⠒","⠓","⠔","⠕","⠖","⠗","⠘","⠙","⠚","⠛","⠜","⠝","⠞","⠟","⠠","⠡","⠢","⠣","⠤","⠥","⠦","⠧","⠨","⠩","⠪","⠫","⠬","⠭","⠮","⠯","⠰","⠱","⠲","⠳","⠴","⠵","⠶","⠷","⠸","⠹","⠺","⠻","⠼","⠽","⠾","⠿"};
         public static final int[] DISPLAY_DIMENSIONS = {75,15};
         public static final int[] PHYSICAL_DISPLAY_DIMENSIONS = {1366,768}; //Actual resolution of the actual screen
         public static final double HALF_X = Math.ceil(DISPLAY_DIMENSIONS[0]/2);
@@ -12,9 +13,13 @@ public class Constants {
         public static final int TEXTURE_SIZE = TEXTURE_AXIS*TEXTURE_AXIS;
 
         // Rendering Engine Related
+        public static final boolean LOW_DENSITY_DETAIL = true; // True: Classic Intensity | False: Braille
+        public static final boolean CALCULATE_ROTATION = true; // True: Rotation is calculated | False: Rotation is not calcualted (always looking straight)
+
         public static final int VIEW_FACTOR = 1; 
         public static final double NEAR_PLANE = 1; // Has to be greater than 0 
         public static final int MAX_LINE_CALCULATIONS = 100; // Limits how many pixels a line should calculate
+        
     }
 
     public class Game {
