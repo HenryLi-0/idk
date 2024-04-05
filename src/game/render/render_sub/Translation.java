@@ -45,6 +45,17 @@ public class Translation {
         return returning;
     }
 
+    /**
+     * Caluclates a line from 2 3D points' positions to 2 2D points of a screen 
+     * @param ix1
+     * @param iy1
+     * @param iz1
+     * @param ix2
+     * @param iy2
+     * @param iz2
+     * @param camera
+     * @return
+     */
     public static int[] line(double ix1, double iy1, double iz1, double ix2, double iy2, double iz2, Camera camera){
         double[] point1 = pointFixOff(ix1,iy1,iz1,camera);
         double[] point2 = pointFixOff(ix2,iy2,iz2,camera);

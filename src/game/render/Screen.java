@@ -84,29 +84,28 @@ public class Screen {
                 rowBuffer = rowBuffer + ColoredText.format("██",ConsoleColors.Text.WHITE);
             }
             System.out.println(rowBuffer + ConsoleColors.RESET);
-            clearDisplay();
         } else {
             // Use one character per six pixels (⠿ = 6 pixels) (High Density)
             for (int iy = (int) Math.ceil(ySize/3)-1; iy > -1; iy--){
                 rowBuffer="";
                 for (int ix = 0; ix < Math.ceil(xSize/2); ix++){
                     /*
-                     * Braille Characters:
-                     *  Dot changes every:
-                     *  |  1 |  8 |
-                     *  |  2 | 16 |
-                     *  |  4 | 32 |
-                     */
+                    * Braille Characters:
+                    *  Dot changes every:
+                    *  |  1 |  8 |
+                    *  |  2 | 16 |
+                    *  |  4 | 32 |
+                    */
                     brailleChar = BRAILLE[
                         (getIntensityOn(ix*2  , iy*3  )*1)
-                       +(getIntensityOn(ix*2  , iy*3+1)*2)
+                        +(getIntensityOn(ix*2  , iy*3+1)*2)
                        +(getIntensityOn(ix*2  , iy*3+2)*4)
                        +(getIntensityOn(ix*2+1, iy*3  )*8)
                        +(getIntensityOn(ix*2+1, iy*3+1)*16)
                        +(getIntensityOn(ix*2+1, iy*3+2)*32)
-                    ];
-                    rowBuffer = rowBuffer + ColoredText.format(brailleChar, displayColor[ix*2][iy*3]);
-                }
+                       ];
+                       rowBuffer = rowBuffer + ColoredText.format(brailleChar, displayColor[ix*2][iy*3]);
+                    }
                 System.out.println(rowBuffer + ConsoleColors.RESET);
             }
             rowBuffer="";
@@ -114,10 +113,14 @@ public class Screen {
                 rowBuffer = rowBuffer + ColoredText.format(BRAILLE[63],ConsoleColors.Text.WHITE);
             }
             System.out.println(rowBuffer + ConsoleColors.RESET);
-
+            
         }
+        clearDisplay();
     }
 
+    /**
+     * Clears Display
+     */
     public void clearDisplay(){
         for (int iy = 0; iy < ySize; iy++){
             for (int ix = 0; ix < xSize; ix++){
